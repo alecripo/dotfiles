@@ -1,4 +1,12 @@
+
 source $HOME/.bash_aliases
+if [[ test -d $HOME/.bash_completions.dh ]]; then
+    for comp in $HOME/.bash_completions.d/*.sh
+    do
+        source $comp
+    done
+fi
+
 git_branch() {
     branch="$(git branch --show-current 2>/dev/null)"
     if [ "$branch" ]; then
@@ -14,8 +22,14 @@ exitstatus()
         echo -n " (exit code: $?) "
     fi
 }
-PS1='\u@\h in \w$(exitstatus)$(git_branch)\r\n\\$ '
-export PATH=$HOME/.local/bin:$PATH
 
-# Created by `pipx` on 2025-04-21 18:12:21
-export PATH="$PATH:/Users/alecripo/.local/bin"
+PS1='$(exitstatus)$(git_branch)\[$(tput bold)\]\[$(tput setaf 68)\]$\[$(tput sgr0)\] '
+
+# PATH
+PATH=$HOME/.local/bin:$PATH
+export PATH
+
+# fzf shell integration for Bash
+if [ -n "$(fzf --version)" ]; then
+    eval "$(fzf --bash)"
+fi
