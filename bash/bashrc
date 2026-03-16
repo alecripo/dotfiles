@@ -1,6 +1,6 @@
 
 source $HOME/.bash_aliases
-if [[ test -d $HOME/.bash_completions.dh ]]; then
+if [[ -d $HOME/.bash_completions.dh ]]; then
     for comp in $HOME/.bash_completions.d/*.sh
     do
         source $comp
@@ -30,6 +30,6 @@ PATH=$HOME/.local/bin:$PATH
 export PATH
 
 # fzf shell integration for Bash
-if [ -n "$(fzf --version)" ]; then
+if [[ -n "$(command -v fzf)" ]]; then
     eval "$(fzf --bash)"
 fi
