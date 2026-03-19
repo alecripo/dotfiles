@@ -1,3 +1,7 @@
+ # Ghostty shell integration for Bash. Leave this at the top of bashrc!
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+fi
 
 source $HOME/.bash_aliases
 if [[ -d $HOME/.bash_completions.dh ]]; then
