@@ -1,10 +1,6 @@
-
-source $HOME/.bash_aliases
-if [[ -d $HOME/.bash_completions.dh ]]; then
-    for comp in $HOME/.bash_completions.d/*.sh
-    do
-        source $comp
-    done
+ # Ghostty shell integration for Bash. Leave this at the top of bashrc!
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
 fi
 
 git_branch() {
@@ -25,11 +21,28 @@ exitstatus()
 
 PS1='$(exitstatus)$(git_branch)\[$(tput bold)\]\[$(tput setaf 68)\]$\[$(tput sgr0)\] '
 
-# PATH
+# [aliases]
+source $HOME/.bash_aliases
+
+# [completions]
+if [[ -d $HOME/.bash_completions.dh ]]; then
+    for comp in $HOME/.bash_completions.d/*.sh
+    do
+        source $comp
+    done
+fi
+
+# [PATH]
 PATH=$HOME/.local/bin:$PATH
 export PATH
 
-# fzf shell integration for Bash
+# [fzf]
 if [[ -n "$(command -v fzf)" ]]; then
     eval "$(fzf --bash)"
+fi
+
+
+# [rustup]
+if [[ -d "$HOME/.cargo" ]]; then
+    source "$HOME/.cargo/env"
 fi
