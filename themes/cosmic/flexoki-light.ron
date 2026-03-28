@@ -228,14 +228,14 @@
     primary_container_bg: None,
     secondary_container_bg: None,
     text_tint: Some((
-        red: 0.13708198,
-        green: 0.13273916,
+        red: 0.13708189,
+        green: 0.13273919,
         blue: 0.13273597,
     )),
     accent: Some((
-        red: 0.0,
-        green: 0.0,
-        blue: 0.0,
+        red: 0.007843138,
+        green: 0.007843138,
+        blue: 0.007843138,
     )),
     success: Some((
         red: 0.09411765,

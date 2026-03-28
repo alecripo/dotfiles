@@ -233,14 +233,14 @@
     )),
     secondary_container_bg: None,
     text_tint: Some((
-        red: 0.734482,
-        green: 0.73061454,
-        blue: 0.6920768,
+        red: 0.7344832,
+        green: 0.73061407,
+        blue: 0.692077,
     )),
     accent: Some((
-        red: 0.7921569,
-        green: 0.7294118,
-        blue: 0.7058824,
+        red: 0.9490196,
+        green: 0.9411765,
+        blue: 0.8980392,
     )),
     success: Some((
         red: 0.57254905,
