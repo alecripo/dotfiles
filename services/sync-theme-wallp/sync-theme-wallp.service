@@ -1,0 +1,7 @@
+[Unit]
+Description="Changes the Cosmic wallpaper based on a light/dark theme."
+
+[Service]
+Type=oneshot
+WorkingDirectory=~
+ExecStart=%h/.local/bin/sync-theme-wallp
